@@ -1,0 +1,16 @@
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+
+# Set the path to the chromedriver executable
+chrome_driver_path = "C:\\Users\\Utsav\\PycharmProjects\\Pro1\\driver\\chromedriver.exe"
+service = Service(executable_path=chrome_driver_path)
+
+# Create a new instance of the Chrome driver
+driver = webdriver.Chrome(service=service)
+
+# Maximize the browser window
+driver.maximize_window()
+
+# Navigate to the specified URL
+driver.get("https://www.selenium.dev/downloads/")
+

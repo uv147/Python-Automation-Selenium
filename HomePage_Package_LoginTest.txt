@@ -1,0 +1,10 @@
+from selenium.webdriver.common.by import By
+from selenium.webdriver.remote.webdriver import WebDriver
+
+class HomePage:
+    def __init__(self, driver: WebDriver):
+        self.driver = driver
+        self.nav_login = (By.ID, "login2")
+
+    def click_nav_login(self):
+        self.driver.find_element(*self.nav_login).click()

@@ -1,0 +1,16 @@
+from selenium import webdriver
+
+
+class BasePage:
+    def __init__(self, driver: webdriver):
+        self.driver = driver
+
+    def maximize_window(self):
+        self.driver.maximize_window()
+
+    def get_url(self, url: str):
+        self.driver.get(url)
+
+    def start_browser(self, url: str):
+        self.maximize_window()
+        self.get_url(url)

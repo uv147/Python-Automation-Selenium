@@ -1,0 +1,27 @@
+import unittest
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from Base.Base_page import BasePage
+from Package.HomePage import HomePage
+from Package.Login import LoginPage
+
+class NewTest(unittest.TestCase):
+    def setUp(self):
+        chrome_driver_path = "C:\\Users\\Utsav\\PycharmProjects\\Pro1\\driver\\chromedriver.exe"
+        service = Service(executable_path=chrome_driver_path)
+        self.driver = webdriver.Chrome(service=service)
+        self.driver.maximize_window()
+        bp = BasePage(self.driver)
+        bp.start_browser("https://demoblaze.com")
+        hp = HomePage(self.driver)
+        hp.click_nav_login()
+
+    def test_login(self):
+        lp = LoginPage(self.driver)
+        lp.login("testmorning", "test123")
+
+    def tearDown(self):
+        self.driver.quit()
+
+if __name__ == "__main__":
+    unittest.main()

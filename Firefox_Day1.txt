@@ -1,0 +1,17 @@
+from selenium import webdriver
+from selenium.webdriver.firefox.service import Service
+
+
+firefox_driver_path = "driver/geckodriver.exe"
+service = Service(executable_path=firefox_driver_path)
+
+
+driver = webdriver.Firefox(service=service)
+driver.maximize_window()
+driver.get("https://www.selenium.dev/downloads/")
+
+
+import time
+time.sleep(5)
+
+driver.quit()

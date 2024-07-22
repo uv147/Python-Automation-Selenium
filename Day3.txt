@@ -1,0 +1,54 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.chrome.service import Service
+import time
+
+
+driver_path = "driver/chromedriver.exe"
+
+
+service = Service(driver_path)
+driver = webdriver.Chrome(service=service)
+
+try:
+    # Maximize the browser window
+    driver.maximize_window()
+
+    # Navigate to the URL
+    driver.get("https://demo.automationtesting.in/Alerts.html")
+
+    # Handle Simple Alert
+    # simple_nav = driver.find_element(By.XPATH, "//a[@href='#OKTab']")
+    # simple_nav.click()
+    # button1 = driver.find_element(By.XPATH, "//button[@onclick='alertbox()']")
+    # button1.click()
+    # time.sleep(2)
+    # alert = Alert(driver)
+    # alert.accept()
+
+    # Handle Confirm Alert
+    # confirm_nav = driver.find_element(By.XPATH, "//a[@href='#CancelTab']")
+    # confirm_nav.click()
+    # button2 = driver.find_element(By.XPATH, "//button[@onclick='confirmbox()']")
+    # button2.click()
+    # time.sleep(2)
+    # alert = Alert(driver)
+    # alert.dismiss()
+
+    # Handle Prompt Alert
+    txt_box_nav = driver.find_element(By.XPATH, "//a[@href='#Textbox']")
+    txt_box_nav.click()
+    button3 = driver.find_element(By.XPATH, "//button[@onclick='promptbox()']")
+    button3.click()
+    time.sleep(2)
+    alert = Alert(driver)
+    alert.send_keys("Uv")
+    alert.accept()
+
+except Exception as e:
+    print(e)
+
+finally:
+
+    driver.quit()
